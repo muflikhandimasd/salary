@@ -13,7 +13,7 @@ class JabatanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $jabatan = Jabatan::paginate(10);
         return view('jabatan.index', compact('jabatan'));

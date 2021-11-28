@@ -28,6 +28,7 @@ Route::match(['get', 'post'], '/register', function () {
 });
 
 
+Route::resource('berita', 'BeritaController');
 Route::resource('jabatan', 'JabatanController');
 Route::resource('tunjangan', 'TunjanganController');
 // 'test' -> ini adalah uri:user resource identifier(kalo di api ini endpoint), 'TunjanganController@test' ->@test adalah method yang ada dalam Tunjangan Controller
