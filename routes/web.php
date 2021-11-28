@@ -36,3 +36,13 @@ Route::resource('tunjangan', 'TunjanganController');
 // 'test' -> ini adalah uri:user resource identifier(kalo di api ini endpoint), 'TunjanganController@test' ->@test adalah method yang ada dalam Tunjangan Controller
 
 Route::get('list-karyawan', 'PenggajianController@index');
+// nama routenya udah dialiasin
+// Route::get('create-gaji/{id}', 'PenggajianController@create_penggajian')->name('createGaji');
+// manggilnya di view : <a href="{{ route('createGaji', $row->id) }}" class="btn btn-primary"><i
+// class="fa fa-exchange-alt"></i>
+// Penggajian</a>
+
+Route::get('create-gaji/{id}', 'PenggajianController@create_penggajian');
+Route::post('post-gaji', 'PenggajianController@store');
+
+Route::get('riwayat-gaji/{id}', 'PenggajianController@detail');

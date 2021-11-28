@@ -33,7 +33,8 @@
                                         <td>{{ $row->jabatan->nama_jabatan }} </td>
                                         <td>{{ $row->status }} </td>
                                         <td>
-                                            <a href="#" class="btn btn-primary"><i class="fa fa-exchange-alt"></i>
+                                            <a href="create-gaji/{{ $row->id }}" class="btn btn-primary"><i
+                                                    class="fa fa-exchange-alt"></i>
                                                 Penggajian</a>
                                             <a href="#" class="btn btn-info"><i class="fa fa-eye"></i>
                                                 Info</a>
