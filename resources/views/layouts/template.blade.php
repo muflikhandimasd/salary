@@ -7,11 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="{{asset('template/img/logo/logo.png')}}" rel="icon">
+    <link href="{{ asset('template/img/logo/logo.png') }}" rel="icon">
     <title>@yield('tab')</title>
     <link href="{{ asset('template/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('template/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('template/css/ruang-admin.min.css') }}" rel="stylesheet">
+    <style>
+        .tengah {
+            text-align: center;
+        }
+
+    </style>
 </head>
 
 <body id="page-top">
@@ -20,7 +26,7 @@
         <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon">
-                    <img src="{{asset('template/img/logo/logo.png')}}" alt="" class="img-brand">
+                    <img src="{{ asset('template/img/logo/logo.png') }}" alt="" class="img-brand">
                 </div>
                 <div class="mx-3 sidebar-brand-text">Salary.id</div>
             </a>
@@ -41,16 +47,16 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="text-white d-none d-lg-inline small">
-                                    @if(Auth::check())
-                                    {{Auth::user()->name}}
+                                    @if (Auth::check())
+                                        {{ Auth::user()->name }}
                                     @endif
                                 </span>
                             </a>
                             <div class="shadow dropdown-menu dropdown-menu-right animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <span class="ml-4 text-gray d-none d-lg-inline small">
-                                    @if(Auth::check())
-                                    {{Auth::user()->name}}
+                                    @if (Auth::check())
+                                        {{ Auth::user()->name }}
                                     @endif
                                 </span>
                                 <div class="dropdown-divider"></div>
@@ -76,7 +82,7 @@
                     </div>
 
                     <!-- Content -->
-
+                    @include('sweetalert::alert')
                     @yield('content')
 
 
@@ -89,7 +95,8 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabelLogout">Keluar?</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close" data-dismiss="modal"
+                                        aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -119,9 +126,9 @@
             <footer class="mt-4 bg-white sticky-footer">
                 <div class="container my-auto">
                     <div class="my-auto text-center copyright">
-                        <span>copyright &copy; salary.id - <script>
-                                document.write(new Date().getFullYear());
-                            </script>
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script>
                         </span>
                     </div>
                 </div>

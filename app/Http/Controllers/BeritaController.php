@@ -50,9 +50,10 @@ class BeritaController extends Controller
      * @param  \App\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function show(Berita $berita)
+    public function show($id)
     {
-        //
+        $berita = Berita::find($id);
+        return view('berita.detail', compact('berita'));
     }
 
     /**
@@ -61,9 +62,10 @@ class BeritaController extends Controller
      * @param  \App\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function edit(Berita $berita)
+    public function edit($id)
     {
-        //
+        $berita = Berita::find($id);
+        return view('berita.edit', compact('berita'));
     }
 
     /**
@@ -73,9 +75,13 @@ class BeritaController extends Controller
      * @param  \App\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Berita $berita)
+    public function update(Request $request, $id)
     {
-        //
+        $berita = Berita::find($id);
+        $input = $request->all();
+        $input['tanggal_terbit'] = date('Y-m-d');
+        $berita->update($input);
+        return redirect('/berita');
     }
 
     /**
@@ -84,8 +90,10 @@ class BeritaController extends Controller
      * @param  \App\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Berita $berita)
+    public function destroy($id)
     {
-        //
+        $data = Berita::find($id);
+        $data->delete();
+        return back();
     }
 }
